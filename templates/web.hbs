@@ -1,0 +1,46 @@
+\{{#*inline "page"}}
+
+<header class="mt3 mt2-ns mb4 mb5-ns tc tl-ns">
+  <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+    <h1>Code of conduct</h1>
+  </div>
+</header>
+
+<section id="code-of-conduct" class="red">
+  <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+    <header>
+      <h2>Conduct</h2>
+      <div class="highlight"></div>
+    </header>
+    <ul>
+      {{#each conduct as |item| ~}}
+      <li>{{{item}}}</li>
+      {{/each ~}}
+    </ul>
+    <p><a class="button button-secondary" href="mailto:{{moderation_email}}">Email The Moderation Team</a></p>
+  </div>
+</section>
+
+<section id="moderation" class="purple">
+  <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+    <header>
+      <h2>Moderation</h2>
+      <div class="highlight"></div>
+    </header>
+    {{~ #each moderation}}
+    {{~ #if text}}
+    <p>{{{text}}}</p>
+    {{~ /if}}
+    {{~ #if points}}
+    <ol>
+      {{#each points as |point| ~}}
+      <li>{{{point}}}</li>
+      {{/each ~}}
+    </ol>
+    {{~ /if}}
+    {{~ /each}}
+  </div>
+</section>
+
+\{{/inline}}
+\{{~> (parent)~}}

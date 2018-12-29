@@ -1,0 +1,22 @@
+# The Rust Code of Conduct
+
+A version of this document [can be found online](https://www.rust-lang.org/policies/code-of-conduct).
+
+## Conduct
+
+**Contact**: [{{moderation_email}}](mailto:{{moderation_email}})
+
+{{#each conduct as |item| ~}}
+* {{item}}
+{{/each}}
+## Moderation
+{{#each moderation as |item|}}
+{{~ #if text}}
+{{text}}
+{{/if}}
+{{~ #if points}}
+{{#each points as |point| ~}}
+1. {{point}}
+{{/each ~}}
+{{/if}}
+{{~ /each ~}}
