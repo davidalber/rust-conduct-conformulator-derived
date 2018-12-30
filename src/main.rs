@@ -1,6 +1,7 @@
 use handlebars::Handlebars;
 use std::fs::File;
 use std::io::prelude::*;
+use std::env;
 
 #[macro_use]
 extern crate serde_derive;
@@ -35,11 +36,17 @@ fn make_web_coc(coc: &CodeOfConduct, reg: &Handlebars) {
 }
 
 fn main() {
+    let args: Vec<String> = env::args().collect();
+    let cmd: &str = &args[1];
+
     let coc: CodeOfConduct = load_coc();
 
     let mut reg = Handlebars::new();
     reg.register_templates_directory(".hbs", "templates").unwrap();
 
-    //make_markdown_coc(&coc, &reg);
-    make_web_coc(&coc, &reg);
+    match cmd {
+        "markdown" => make_markdown_coc(&coc, &reg),
+        "web" => make_web_coc(&coc, &reg),
+        _ => (),
+    }
 }
